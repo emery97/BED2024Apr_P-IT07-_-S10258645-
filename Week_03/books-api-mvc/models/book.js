@@ -65,4 +65,5 @@ const books = [
     }
   }
   
-  module.exports = Book;
+  module.exports = Book; 
+  // allows other js files to use Book class 
