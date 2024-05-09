@@ -36,6 +36,8 @@ class Book {
     const sqlQuery = `SELECT * FROM Books WHERE id = @id`; // Parameterized query
 
     const request = connection.request();
+    // allows us to add input parameters into the query 
+    // in the query we have id = @id
     request.input("id", id);
     const result = await request.query(sqlQuery);
 
@@ -184,6 +186,8 @@ In the `mssql` package for Node.js, the `result.recordset` property holds the ac
 const sqlQuery = "SELECT id, title, author FROM Books";
 const request = connection.request();
 const result = await request.query(sqlQuery);
+
+// results.recordset : holds data retrieved from SQL database after executing a query
 
 console.log(result.recordset); // Array of objects representing book rows
 console.log(result.recordset[0]); // First object (first row)
