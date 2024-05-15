@@ -1,16 +1,19 @@
 const express = require("express");
+const app = express();
+const staticMiddleware = express.static("public"); // path to the public folder
+
 const booksController = require("./controllers/booksController");
 const sql = require("mssql");
 const dbConfig = require("./dbConfig");
 const bodyParser = require("body-parser");
 const validateBook = require("./middleware/validateBook")
 
-const app = express();
 const port = 3000; // Use environment variable or default port
 
 // Include body-parser middleware to handle JSON data
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));// for form data handling
+app.use(staticMiddleware); // mount the static middleware
 
 // Routes for GET requests (replace with appropriate routes for update and delete later)
 app.get("/books", booksController.getAllBooks);
