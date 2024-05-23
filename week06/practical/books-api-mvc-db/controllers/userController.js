@@ -2,7 +2,7 @@ const User = require("../models/user");
 const sql = require("mssql");
 
 const createUser = async(req,res) => {
-    const newUser = req.body();
+    const newUser = req.body;
     try{
         const createdUser = await User.createUser(newUser);
         res.status(201).json(createdUser);

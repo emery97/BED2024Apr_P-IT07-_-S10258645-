@@ -23,6 +23,7 @@ app.post("/books",validateBook,booksController.createBook); // POST for creating
 app.put("/books/:id", booksController.updateBook); // PUT for updating books
 app.delete("/books/:id", booksController.deleteBook); // DELETE for deleting books
 
+app.get("/users/with-books",userController.getUsersWithBooks);
 app.get("/users/search",userController.searchUsers);
 app.get("/users", userController.getAllUsers);
 app.get("/users/:id", userController.getUserById);
