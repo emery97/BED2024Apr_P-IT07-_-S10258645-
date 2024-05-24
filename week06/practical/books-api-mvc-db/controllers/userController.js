@@ -44,36 +44,34 @@ class UserController {
         }
     }
 
-    static async updateUser(req, res){
-        const userId = parseInt(req.params.id);
-        const newUserData = req.body;
-
-        try{
-            const updatedUser = await User.updateUser(userId, newUserData);
-            if (!updatedUser){
-                return res.status(404).send("User not found");
-            }
-            res.json(updatedUser);
-        } catch(error){
-            console.error(error);
-            res.status(500).send("Error updating user");
-        }
-    }
-
-    static async deleteUser(req, res){
-        const userId = parseInt(req.params.id);
-
-        try{
-            const success = await User.deleteUser(userId);
-            if (!success){
-                return res.status(404).send("User not found");
-            }
-            res.status(204).send();
-        } catch(error){
-            console.error(error);
-            res.status(500).send("Error deleting user");
-        }
-    }
+    static updateUser = async (req, res) => {
+      const userId = parseInt(req.params.id);
+      const newUserData = req.body;
+  
+      try {
+          const updatedUser = await User.updateUser(userId, newUserData);
+          if (!updatedUser) {
+              return res.status(404).send("User not found");
+          }
+          res.json(updatedUser)
+      } catch (error) {
+          console.error(error);
+          res.status(500).send("Error updating user");
+      }
+  };
+    static async deleteUser (req, res) {
+      const userId = parseInt(req.params.id);
+      try {
+          const success = await User.deleteUser(userId);
+          if (!success) {
+              return res.status(404).send("User not found");
+          }
+          res.status(204).send();
+      } catch(error) {
+          console.error(error);
+          res.status(500).send("Error deleting user");
+      }
+  };
 
     //NEW FUNCTION FOR SEARCH ...... !!
     static async searchUsers(req, res){
