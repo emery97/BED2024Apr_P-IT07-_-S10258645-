@@ -28,8 +28,8 @@ app.get("/users/search",userController.searchUsers);
 app.get("/users", userController.getAllUsers);
 app.get("/users/:id", userController.getUserById);
 app.post("/users",userController.createUser);
-app.put("/users/:id",userController.updatedUser);
-app.delete("/users/:id",userController.deletedUser);
+app.put("/users/:id",userController.updateUser);
+app.delete("/users/:id",userController.deleteUser);
 
 app.listen(port, async () => {
   try {
