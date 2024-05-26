@@ -59,7 +59,7 @@ const updateBook = async (req, res) => {
       if (!success) {
         return res.status(404).send("Book not found");
       }
-      res.status(204).send();
+      return res.status(200).send("Book deleted successfully");
     } catch (error) {
       console.error(error);
       res.status(500).send("Error deleting book");
