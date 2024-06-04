@@ -75,7 +75,7 @@ class Book {
       static async createBook(newBookData) {
         const connection = await sql.connect(dbConfig);
     
-        const sqlQuery = `INSERT INTO Books (title, author) VALUES (@title, @author); SELECT SCOPE_IDENTITY() AS id;`; // Retrieve ID of inserted record
+        const sqlQuery = `INSERT INTO Books (title, author) VALUES (@title, @author); SELECT SCOPE_IDENTITY() AS id;`; // Retrieve ID of last INSERT record
     
         const request = connection.request();
         request.input("title", newBookData.title);
