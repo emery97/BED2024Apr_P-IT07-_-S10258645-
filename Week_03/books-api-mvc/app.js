@@ -5,7 +5,7 @@ const validateBook = require("./middlewares/validateBook");
 
 const app = express();
 
-app.use(bodyParser.json()); // Parse incoming JSON data in request body
+app.use(bodyParser.json()); // Parse incoming request bodies with JSON payloads into JavaScript objects
 app.use(bodyParser.urlencoded({ extended: true })); // For form data handling
 
 // Define individual routes for each controller function

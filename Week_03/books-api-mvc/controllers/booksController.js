@@ -16,6 +16,7 @@ const getBookById = async (req, res) => {
   try {
     const book = await Book.getBookById(bookId);
     if (!book) {
+      console.log("WRONG ID");
       return res.status(404).send("Book not found");
     }
     res.json(book);
