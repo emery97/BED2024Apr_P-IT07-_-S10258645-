@@ -1,4 +1,4 @@
-module.export= {
+module.exports= {
     user: "booksapi_user", // Replace with your SQL Server login username
     password: "123", // Replace with your SQL Server login password
     server: "localhost",
